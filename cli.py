@@ -1,6 +1,8 @@
 import json
 import sys
-from agent import analyze_market
+
+from app.config import load_config
+from app.services.analyst import run_analysis
 
 
 def main():
@@ -18,8 +20,8 @@ def main():
         sys.exit(1)
 
     print("\nAnalyzing... this may take a few seconds.\n")
-
-    result = analyze_market(idea, audience)
+    config = load_config()
+    result = run_analysis(idea=idea, audience=audience, config=config)
     print(json.dumps(result, indent=2))
 
 
