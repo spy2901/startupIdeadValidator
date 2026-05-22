@@ -1,0 +1,8 @@
+{
+  "apiBaseUrl": "https://b8ec-95-140-126-22.ngrok-free.app",
+  "analyzeEndpoint": "/analyze",
+  "request": {
+    "startup_idea": "your startup idea",
+    "target_audience": "your target audience"
+  }
+}
