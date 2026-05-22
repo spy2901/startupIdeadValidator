@@ -60,9 +60,24 @@ Required JSON schema:
     "signups": <integer — estimated signups from clicks>,
     "payments": <integer — estimated payments within 24h>,
     "ctr": <float — click-through rate as percentage>,
+    "ctr_explanation": "<1-2 sentences explaining why the CTR is this value — reference post quality, audience pain level, topic relevance, and typical Reddit CTR benchmarks>",
     "signup_rate": <float — signup rate from clicks as percentage>,
+    "payments_explanation": "<1-2 sentences explaining why this many payments occurred — reference willingness to pay, pain severity, price sensitivity of the audience, and early adopter behavior>",
     "revenue_signal": "<none | weak | moderate | strong early monetization intent>",
     "disclaimer": "Payments are based on 24h simulation only"
+  },
+  "key_insights": [
+    {
+      "insight": "<one clear takeaway from the analysis>",
+      "implication": "<what this means for the product or go-to-market strategy>"
+    }
+  ],
+  "mvp_direction": {
+    "core_feature": "<the single most important feature the MVP must solve — based on the top pain point>",
+    "out_of_scope": ["<feature or complexity to intentionally exclude from v1>", "..."],
+    "suggested_format": "<what form the MVP should take e.g. web app, Chrome extension, Notion template, waitlist landing page>",
+    "week1_action": "<the one concrete action to take in the next 7 days to validate this>",
+    "monetization_hint": "<earliest possible monetization angle that matches audience willingness to pay>"
   },
   "decision": {
     "verdict": "<BUILD | TEST MORE | PIVOT | REJECT>",
@@ -82,7 +97,7 @@ USER_PROMPT_TEMPLATE = """Analyze the following startup idea for product-market 
 Startup idea: {idea}
 Target audience / subreddit: {audience}
 
-Return the full JSON analysis including exactly 3 reddit_posts, an experiment plan, a 24h simulation, and a final decision verdict based on the scoring rules."""
+Return the full JSON analysis including exactly 3 reddit_posts, an experiment plan, a 24h simulation, key insights (3–5 items), an MVP direction, and a final decision verdict based on the scoring rules."""
 
 
 def _load_env_file() -> None:
